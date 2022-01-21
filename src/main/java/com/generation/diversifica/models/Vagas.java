@@ -53,14 +53,32 @@ public class Vagas {
 	//Enuns
 	@Enumerated(EnumType.STRING)
 	private Opcao convenio;
+	
+	@Enumerated(EnumType.STRING)
 	private Opcao dental;
+	
+	@Enumerated(EnumType.STRING)
 	private Opcao remoto;
+	
+	@Enumerated(EnumType.STRING)
 	private Opcao pcd_intelectual;
+	
+	@Enumerated(EnumType.STRING)
 	private Opcao pcd_fisica;
+	
+	@Enumerated(EnumType.STRING)
 	private Opcao pcd_visual;
+	
+	@Enumerated(EnumType.STRING)
 	private Opcao pcd_auditiva;
+	
+	@Enumerated(EnumType.STRING)
 	private Opcao pcd_multiplas;
+	
+	@Enumerated(EnumType.STRING)
 	private Opcao lgbia;
+	
+	@Enumerated(EnumType.STRING)
 	private Opcao trans;
 	
 	
