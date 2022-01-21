@@ -19,14 +19,20 @@ import com.generation.diversifica.utils.Experiencia;
 import com.generation.diversifica.utils.Opcao;
 
 
-
+/**
+ *  Classe Modelo para persistencia no Banco de Dados
+ *  
+ *  @author Thiago Batista da Graça
+ *  @since 1.0
+ *  
+ */
 @Entity
 @Table(name = "tb_vagas")
 public class Vagas {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long id_vaga;
 	
 	@NotNull
 	@Size(max = 45)
@@ -89,11 +95,11 @@ public class Vagas {
 	private Etnia etnia;
 	
 	public Long getId() {
-		return id;
+		return id_vaga;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long id_vaga) {
+		this.id_vaga = id_vaga;
 	}
 
 	public String getNome_vaga() {
