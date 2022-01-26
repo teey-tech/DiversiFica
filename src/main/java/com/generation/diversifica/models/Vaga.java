@@ -28,7 +28,7 @@ import com.generation.diversifica.utils.Opcao;
  */
 @Entity
 @Table(name = "tb_vagas")
-public class Vagas {
+public class Vaga {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
