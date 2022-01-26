@@ -23,14 +23,12 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
-
-
 /**
  * Criando a Classe Controller para Vaga
- *  
- *  @author Sarah Nani
- *  @since 1.0
- *  
+ * 
+ * @author Sarah Nani
+ * @since 1.0
+ * 
  */
 
 @RestController
@@ -41,15 +39,15 @@ public class VagaController {
 
 	@Autowired
 	private VagaRepository repository;
-	
+
 	/**
 	 * Pega informação da tabela pelo ID
-	 *  
-	 *  @author Sarah Nani
-	 *  @since 1.0
-	 *  
+	 * 
+	 * @author Sarah Nani
+	 * @since 1.0
+	 * 
 	 */
-	
+
 	@GetMapping
 	public ResponseEntity<List<Vaga>> getAll() {
 		List<Vaga> list = repository.findAll();
@@ -60,8 +58,7 @@ public class VagaController {
 			return ResponseEntity.status(201).body(list);
 		}
 	}
-		
-	
+
 	@GetMapping("{idVaga}")
 	public ResponseEntity<Vaga> getId(@PathVariable Long idVaga) {
 		return repository.findById(idVaga).map(resp -> {
@@ -80,12 +77,12 @@ public class VagaController {
 			return ResponseEntity.status(200).body(list);
 		}
 	}
-	
+
 	@PostMapping("/save")
 	public ResponseEntity<Vaga> savePost(@Valid @RequestBody Vaga vaga) {
 		return ResponseEntity.status(201).body(repository.save(vaga));
 	}
-	
+
 	@PutMapping("/update")
 	public ResponseEntity<Vaga> updatePost(@Valid @RequestBody Vaga updatePost) {
 		return repository.findById(updatePost.getIdVaga()).map(record -> {
@@ -94,10 +91,18 @@ public class VagaController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id não encontrado");
 		});
 	}
-	
-	
-	
-	
-	
-	
+
+	@SuppressWarnings("rawtypes")
+	@DeleteMapping(value = "/delete/{idVaga}")
+	public ResponseEntity deletePost(@PathVariable("idVaga") long idVaga) {
+		Optional<Vaga> optional = repository.findById(idVaga);
+		if (optional.isPresent()) {
+			repository.deleteById(idVaga);
+			return ResponseEntity.status(200).build();
+
+		} else {
+			return ResponseEntity.status(404).build();
+		}
+	}
+
 }
