@@ -5,7 +5,7 @@ package com.generation.diversifica.utils;
  *  
  *  @author Thiago Batista da Graça
  *  @since 1.0
- *  @see Vagas
+ *  @see Vaga
  *  
  */
 
