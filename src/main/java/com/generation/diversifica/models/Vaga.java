@@ -1,5 +1,7 @@
 package com.generation.diversifica.models;
 
+import java.text.DateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -14,6 +16,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.generation.diversifica.utils.Etnia;
 import com.generation.diversifica.utils.Experiencia;
 import com.generation.diversifica.utils.Opcao;
@@ -32,11 +35,11 @@ public class Vaga {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_vaga;
+	private Long idVaga;
 	
 	@NotNull
 	@Size(max = 45)
-	private String nome_vaga;
+	private String nomeVaga;
 	
 	@NotNull
 	@Size(max = 500)
@@ -52,10 +55,9 @@ public class Vaga {
 	@Size(max = 500)
 	private String beneficios;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private  Date date_postagem = new java.sql.Date(System.currentTimeMillis());;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
+	private  LocalDate datePostagem = LocalDate.now();
 	
-
 	//Enuns
 	@Enumerated(EnumType.STRING)
 	private Opcao convenio;
@@ -67,19 +69,19 @@ public class Vaga {
 	private Opcao remoto;
 	
 	@Enumerated(EnumType.STRING)
-	private Opcao pcd_intelectual;
+	private Opcao pcdIntelectual;
 	
 	@Enumerated(EnumType.STRING)
-	private Opcao pcd_fisica;
+	private Opcao pcdFisica;
 	
 	@Enumerated(EnumType.STRING)
-	private Opcao pcd_visual;
+	private Opcao pcdVisual;
 	
 	@Enumerated(EnumType.STRING)
-	private Opcao pcd_auditiva;
+	private Opcao pcdAuditiva;
 	
 	@Enumerated(EnumType.STRING)
-	private Opcao pcd_multiplas;
+	private Opcao pcdMultiplas;
 	
 	@Enumerated(EnumType.STRING)
 	private Opcao lgbia;
@@ -94,24 +96,25 @@ public class Vaga {
 	@Enumerated(EnumType.STRING)
 	private Etnia etnia;
 	
-	public Long getId() {
-		return id_vaga;
+
+	public Long getIdVaga() {
+		return this.idVaga;
 	}
 
-	public void setId(Long id_vaga) {
-		this.id_vaga = id_vaga;
+	public void setIdVaga(Long idVaga) {
+		this.idVaga = idVaga;
 	}
 
-	public String getNome_vaga() {
-		return nome_vaga;
+	public String getNomeVaga() {
+		return this.nomeVaga;
 	}
 
-	public void setNome_vaga(String nome_vaga) {
-		this.nome_vaga = nome_vaga;
+	public void setNomeVaga(String nomeVaga) {
+		this.nomeVaga = nomeVaga;
 	}
 
 	public String getDescricao() {
-		return descricao;
+		return this.descricao;
 	}
 
 	public void setDescricao(String descricao) {
@@ -119,7 +122,7 @@ public class Vaga {
 	}
 
 	public String getCargo() {
-		return cargo;
+		return this.cargo;
 	}
 
 	public void setCargo(String cargo) {
@@ -127,7 +130,7 @@ public class Vaga {
 	}
 
 	public Float getSalario() {
-		return salario;
+		return this.salario;
 	}
 
 	public void setSalario(Float salario) {
@@ -135,23 +138,23 @@ public class Vaga {
 	}
 
 	public String getBeneficios() {
-		return beneficios;
+		return this.beneficios;
 	}
 
 	public void setBeneficios(String beneficios) {
 		this.beneficios = beneficios;
 	}
 
-	public Date getDate_postagem() {
-		return date_postagem;
+	public LocalDate getDatePostagem() {
+		return this.datePostagem;
 	}
 
-	public void setDate_postagem(Date date_postagem) {
-		this.date_postagem = date_postagem;
+	public void setDatePostagem(LocalDate datePostagem) {
+		this.datePostagem = datePostagem;
 	}
 
 	public Opcao getConvenio() {
-		return convenio;
+		return this.convenio;
 	}
 
 	public void setConvenio(Opcao convenio) {
@@ -159,7 +162,7 @@ public class Vaga {
 	}
 
 	public Opcao getDental() {
-		return dental;
+		return this.dental;
 	}
 
 	public void setDental(Opcao dental) {
@@ -167,55 +170,55 @@ public class Vaga {
 	}
 
 	public Opcao getRemoto() {
-		return remoto;
+		return this.remoto;
 	}
 
 	public void setRemoto(Opcao remoto) {
 		this.remoto = remoto;
 	}
 
-	public Opcao getPcd_intelectual() {
-		return pcd_intelectual;
+	public Opcao getPcdIntelectual() {
+		return this.pcdIntelectual;
 	}
 
-	public void setPcd_intelectual(Opcao pcd_intelectual) {
-		this.pcd_intelectual = pcd_intelectual;
+	public void setPcdIntelectual(Opcao pcdIntelectual) {
+		this.pcdIntelectual = pcdIntelectual;
 	}
 
-	public Opcao getPcd_fisica() {
-		return pcd_fisica;
+	public Opcao getPcdFisica() {
+		return this.pcdFisica;
 	}
 
-	public void setPcd_fisica(Opcao pcd_fisica) {
-		this.pcd_fisica = pcd_fisica;
+	public void setPcdFisica(Opcao pcdFisica) {
+		this.pcdFisica = pcdFisica;
 	}
 
-	public Opcao getPcd_visual() {
-		return pcd_visual;
+	public Opcao getPcdVisual() {
+		return this.pcdVisual;
 	}
 
-	public void setPcd_visual(Opcao pcd_visual) {
-		this.pcd_visual = pcd_visual;
+	public void setPcdVisual(Opcao pcdVisual) {
+		this.pcdVisual = pcdVisual;
 	}
 
-	public Opcao getPcd_auditiva() {
-		return pcd_auditiva;
+	public Opcao getPcdAuditiva() {
+		return this.pcdAuditiva;
 	}
 
-	public void setPcd_auditiva(Opcao pcd_auditiva) {
-		this.pcd_auditiva = pcd_auditiva;
+	public void setPcdAuditiva(Opcao pcdAuditiva) {
+		this.pcdAuditiva = pcdAuditiva;
 	}
 
-	public Opcao getPcd_multiplas() {
-		return pcd_multiplas;
+	public Opcao getPcdMultiplas() {
+		return this.pcdMultiplas;
 	}
 
-	public void setPcd_multiplas(Opcao pcd_multiplas) {
-		this.pcd_multiplas = pcd_multiplas;
+	public void setPcdMultiplas(Opcao pcdMultiplas) {
+		this.pcdMultiplas = pcdMultiplas;
 	}
 
 	public Opcao getLgbia() {
-		return lgbia;
+		return this.lgbia;
 	}
 
 	public void setLgbia(Opcao lgbia) {
@@ -223,7 +226,7 @@ public class Vaga {
 	}
 
 	public Opcao getTrans() {
-		return trans;
+		return this.trans;
 	}
 
 	public void setTrans(Opcao trans) {
@@ -231,7 +234,7 @@ public class Vaga {
 	}
 
 	public Experiencia getExperiencia() {
-		return experiencia;
+		return this.experiencia;
 	}
 
 	public void setExperiencia(Experiencia experiencia) {
@@ -239,13 +242,11 @@ public class Vaga {
 	}
 
 	public Etnia getEtnia() {
-		return etnia;
+		return this.etnia;
 	}
 
 	public void setEtnia(Etnia etnia) {
 		this.etnia = etnia;
 	}
 
-	
-	
 }
