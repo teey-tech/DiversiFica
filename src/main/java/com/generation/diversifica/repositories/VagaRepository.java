@@ -18,8 +18,7 @@ import com.generation.diversifica.models.Vaga;
 
 @Repository
 public interface VagaRepository extends JpaRepository <Vaga, Long> {
-	public List<Vaga> findAllByVaga_Nome_VagaContainingIgnoreCase (String nome_vaga);
-
+	public List<Vaga> findAllByNomeVagaContainingIgnoreCase (String nomeVaga);
 	public List<Vaga> findAll();
 
 }

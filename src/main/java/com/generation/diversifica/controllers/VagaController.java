@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.generation.diversifica.models.Vaga;
 import com.generation.diversifica.repositories.VagaRepository;
+import java.util.List;
+
+
 
 /**
  * Criando a Classe Controller para Vaga
@@ -44,5 +46,16 @@ public class VagaController {
 			return ResponseEntity.status(404).build();
 		});
 	}
+
+	@GetMapping("/nome-vaga/{nomeVaga}")
+	public ResponseEntity<List<Vaga>> getByName(@PathVariable String nomeVaga) {
+		List<Vaga> list = repository.findAllByNomeVagaContainingIgnoreCase(nomeVaga);
+		if (list.isEmpty()) {
+			return ResponseEntity.status(204).build();
+		} else {
+			return ResponseEntity.status(200).body(list);
+		}
+	}
+
 	
 }
