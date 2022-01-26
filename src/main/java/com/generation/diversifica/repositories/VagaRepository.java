@@ -11,6 +11,7 @@ import com.generation.diversifica.models.Vaga;
  * Criando a Interface Repositório para Vaga
  *  
  *  @author Sarah Nani
+ *  @author Catarina Rinaldi
  *  @since 1.0
  *  
  */
@@ -18,4 +19,7 @@ import com.generation.diversifica.models.Vaga;
 @Repository
 public interface VagaRepository extends JpaRepository <Vaga, Long> {
 	public List<Vaga> findAllByVaga_Nome_VagaContainingIgnoreCase (String nome_vaga);
+
+	public List<Vaga> findAll();
+
 }
