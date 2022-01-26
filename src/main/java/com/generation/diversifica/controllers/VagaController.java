@@ -1,5 +1,10 @@
 package com.generation.diversifica.controllers;
 
+import java.util.List;
+import java.util.Optional;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +21,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.diversifica.models.Vaga;
 import com.generation.diversifica.repositories.VagaRepository;
-import com.generation.farmacia.models.Produto;
-
-import java.util.List;
-import java.util.Optional;
-
-import javax.validation.Valid;
 
 /**
  * Criando a Classe Controller para Vaga
