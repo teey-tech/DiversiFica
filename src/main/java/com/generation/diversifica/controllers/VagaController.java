@@ -86,7 +86,16 @@ public class VagaController {
 		return ResponseEntity.status(201).body(repository.save(vaga));
 	}
 	
-
+	@PutMapping("/update")
+	public ResponseEntity<Vaga> updatePost(@Valid @RequestBody Vaga updatePost) {
+		return repository.findById(updatePost.getIdVaga()).map(record -> {
+			return ResponseEntity.status(201).body(repository.save(updatePost));
+		}).orElseGet(() -> {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id não encontrado");
+		});
+	}
+	
+	
 	
 	
 	
