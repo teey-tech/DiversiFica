@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.generation.diversifica.models.Avalicao;
+import com.generation.diversifica.models.Avaliacao;
+import com.generation.diversifica.repositories.AvaliacaoRepository;
+
+
 
 /**
  * Criando a Classe Controller para Avaliação
