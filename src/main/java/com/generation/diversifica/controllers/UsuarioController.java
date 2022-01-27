@@ -118,4 +118,34 @@ public ResponseEntity<List<Usuario>> getAll(){
    * @since 27/01/2022
    * 
    */
+
+  @PutMapping(value = "update")
+  public ResponseEntity<Usuario> updatePost(@Valid @RequestBody Usuario usuario) {
+    return repository.findById(usuario.getIdUsuario()).map(record -> {
+      return ResponseEntity.status(201).body(repository.save(usuario));
+    }).orElseGet(() -> {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id não encontrado");
+    });
+  }
+
+  /**
+   * Função que deleta as informações do banco de dado por Id
+   * 
+   * @author Thiago Batista
+   * @version 1.0
+   * @since 27/01/2022
+   * 
+   */
+
+  @SuppressWarnings("rawtypes")
+  @DeleteMapping(value = "/delete/{idUsuario}")
+  public ResponseEntity deletePost(@PathVariable("idUsuario") long idUsuario) {
+    Optional<Usuario> optional = repository.findById(idUsuario);
+    if (optional.isPresent()) {
+      repository.deleteById(idUsuario);
+      return ResponseEntity.status(200).build();
+    } else {
+      return ResponseEntity.status(404).build();
+    }
+  }
 }
