@@ -1,11 +1,15 @@
 package com.generation.diversifica.controllers;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.diversifica.models.Avalicao;
-import com.generation.diversifica.models.Vaga;
-
 
 /**
  * Criando a Classe Controller para Avaliação
@@ -49,4 +51,17 @@ public class AvaliacaoController {
 		});
 	}
 	
+	@SuppressWarnings("rawtypes")
+	@DeleteMapping(value = "/delete/{idAvaliacao}")
+	public ResponseEntity deletePost(@PathVariable("idAvaliacao") long idAvaliacao) {
+		Optional<Avaliacao> optional = repository.findById(idAvaliacao);
+		if (optional.isPresent()) {
+			repository.deleteById(idAvaliacao);
+			return ResponseEntity.status(200).build();
+
+		} else {
+			return ResponseEntity.status(404).build();
+		}
+	}
+
 }
