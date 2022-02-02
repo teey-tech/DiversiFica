@@ -17,6 +17,16 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.generation.diversifica.utils.TipoUsuario;
 
+/**
+ *  Model de Avaliação
+ *  
+ *  @author Bruno Ribeiro
+ *  @author Catarina Rinaldi
+ *  @since 27/01/2022
+ *  @version 1.0
+ *  
+ */
+
 @Entity
 @Table(name = "tb_usuarios")
 public class Usuario {
@@ -62,102 +72,113 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Vaga> Vaga;
+    
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+   	@JsonIgnoreProperties("usuario")
+   	private List<Avaliacao> Avaliacao;
 
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
 
-    public Long getIdUsuario() {
-        return this.idUsuario;
-    }
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
 
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+	public String getNomeUsuario() {
+		return nomeUsuario;
+	}
 
-    public String getNomeUsuario() {
-        return this.nomeUsuario;
-    }
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
+	}
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public String getEmail() {
-        return this.email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getSenha() {
+		return senha;
+	}
 
-    public String getSenha() {
-        return this.senha;
-    }
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public TipoUsuario getTipo() {
+		return tipo;
+	}
 
-    public TipoUsuario getTipo() {
-        return this.tipo;
-    }
+	public void setTipo(TipoUsuario tipo) {
+		this.tipo = tipo;
+	}
 
-    public void setTipo(TipoUsuario tipo) {
-        this.tipo = tipo;
-    }
+	public String getComunidade() {
+		return comunidade;
+	}
 
-    public String getComunidade() {
-        return this.comunidade;
-    }
+	public void setComunidade(String comunidade) {
+		this.comunidade = comunidade;
+	}
 
-    public void setComunidade(String comunidade) {
-        this.comunidade = comunidade;
-    }
+	public String getSexualidade() {
+		return sexualidade;
+	}
 
-    public String getSexualidade() {
-        return this.sexualidade;
-    }
+	public void setSexualidade(String sexualidade) {
+		this.sexualidade = sexualidade;
+	}
 
-    public void setSexualidade(String sexualidade) {
-        this.sexualidade = sexualidade;
-    }
+	public String getGenero() {
+		return genero;
+	}
 
-    public String getGenero() {
-        return this.genero;
-    }
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
 
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
+	public String getPcds() {
+		return pcds;
+	}
 
-    public String getPcds() {
-        return this.pcds;
-    }
+	public void setPcds(String pcds) {
+		this.pcds = pcds;
+	}
 
-    public void setPcds(String pcds) {
-        this.pcds = pcds;
-    }
+	public String getEtnia() {
+		return etnia;
+	}
 
-    public String getEtnia() {
-        return this.etnia;
-    }
+	public void setEtnia(String etnia) {
+		this.etnia = etnia;
+	}
 
-    public void setEtnia(String etnia) {
-        this.etnia = etnia;
-    }
+	public String getFoto() {
+		return foto;
+	}
 
-    public String getFoto() {
-        return this.foto;
-    }
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
+	public List<Vaga> getVaga() {
+		return Vaga;
+	}
 
-    public List<Vaga> getVaga() {
-        return this.Vaga;
-    }
+	public void setVaga(List<Vaga> vaga) {
+		Vaga = vaga;
+	}
 
-    public void setVaga(List<Vaga> Vaga) {
-        this.Vaga = Vaga;
-    }
+	public List<Avaliacao> getAvaliacao() {
+		return Avaliacao;
+	}
+
+	public void setAvaliacao(List<Avaliacao> avaliacao) {
+		Avaliacao = avaliacao;
+	}
 
 }
