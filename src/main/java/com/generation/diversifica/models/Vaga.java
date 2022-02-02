@@ -1,6 +1,5 @@
 package com.generation.diversifica.models;
 
-
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -21,84 +20,82 @@ import com.generation.diversifica.utils.Etnia;
 import com.generation.diversifica.utils.Experiencia;
 import com.generation.diversifica.utils.Opcao;
 
-
 /**
- *  Classe Modelo para persistencia no Banco de Dados
- *  
- *  @author Thiago Batista da Graça
- *  @since 1.0
- *  
+ * Classe Modelo para persistencia no Banco de Dados
+ * 
+ * @author Thiago Batista da Graça
+ * @since 1.0
+ * 
  */
 @Entity
 @Table(name = "tb_vagas")
 public class Vaga {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idVaga;
-	
+
 	@NotNull
 	@Size(max = 45)
 	private String nomeVaga;
-	
+
 	@NotNull
 	@Size(max = 500)
 	private String descricao;
-	
+
 	@Size(max = 100)
 	private String cargo;
-	
+
 	@NotNull
 	private Float salario;
-	
+
 	@NotNull
 	@Size(max = 500)
 	private String beneficios;
-	
+
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
-	private  LocalDate datePostagem = LocalDate.now();
-	
-	//Enuns
+	private LocalDate datePostagem = LocalDate.now();
+
+	// Enuns
 	@Enumerated(EnumType.STRING)
 	private Opcao convenio;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Opcao dental;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Opcao remoto;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Opcao pcdIntelectual;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Opcao pcdFisica;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Opcao pcdVisual;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Opcao pcdAuditiva;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Opcao pcdMultiplas;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Opcao lgbia;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Opcao trans;
-	
-	
+
 	@Enumerated(EnumType.STRING)
 	private Experiencia experiencia;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Etnia etnia;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "fk_empresa")
-	@JsonIgnoreProperties("Vaga")
+	@JsonIgnoreProperties("vaga")
 	private Usuario usuario;
 
 	public Long getIdVaga() {
@@ -260,5 +257,5 @@ public class Vaga {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
+
 }
