@@ -44,7 +44,6 @@ public class Usuario {
 	private String email;
 
 	@NotNull
-	@Size(max = 45)
 	private String senha;
 
 	@Enumerated(EnumType.STRING)
