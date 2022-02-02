@@ -8,7 +8,7 @@
 
 ### 🚧 **Projeto em construção** 🚧
 <a href="http://makeapullrequest.com">
-    <img src="https://img.shields.io/badge/progresso-22%25-red.svg" alt="PRs Welcome">
+    <img src="https://img.shields.io/badge/progresso-43%25-yellow.svg" alt="PRs Welcome">
   </a>
 <br><br>
 
@@ -33,11 +33,13 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ### ✔ **Recursos**
 
-- [x] Model de vagas
-- [x] Repositório de vagas
-- [x] Controller de vagas
-- [x] CRUD de vagas
-- [ ] Model, repositório, controller e CRUD de outras tabelas
+- [x] Model, Repositório e Controller de Vagas
+- [x] Model, Repositório e Controller de Usuários
+- [x] Model, Repositório e Controller de Avaliação
+- [x] CRUD
+- [x] Filtros de pesquisa
+- [x] Security
+- [ ] Front-end ✨
 
 ### 📈 **Equipe**
 <table>
