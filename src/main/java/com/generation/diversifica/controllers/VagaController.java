@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.diversifica.models.Vaga;
 import com.generation.diversifica.repositories.VagaRepository;
+import com.generation.diversifica.utils.Opcao;
 
 /**
  * Criando a Classe Controller para Vaga
@@ -70,6 +72,22 @@ public class VagaController {
 	@GetMapping("/nome-vaga/{nomeVaga}")
 	public ResponseEntity<List<Vaga>> getByName(@PathVariable String nomeVaga) {
 		List<Vaga> list = repository.findAllByNomeVagaContainingIgnoreCase(nomeVaga);
+		if (list.isEmpty()) {
+			return ResponseEntity.status(204).build();
+		} else {
+			return ResponseEntity.status(200).body(list);
+		}
+	}
+
+	@GetMapping("/search")
+	public ResponseEntity<List<Vaga>> search (
+			@RequestParam(required = false) Opcao pcdAuditiva,
+			@RequestParam(required = false) Opcao pcdVisual,
+			@RequestParam(required = false) Opcao pcdFisica,
+			@RequestParam(required = false) Opcao pcdMultiplas,
+			@RequestParam(required = false) Opcao pcdIntelectual) {
+
+		List<Vaga> list = repository.findAllByPcdAuditivaAndPcdVisualAndPcdFisicaAndPcdMultiplasAndPcdIntelectual(pcdAuditiva, pcdVisual, pcdFisica, pcdMultiplas, pcdIntelectual);
 		if (list.isEmpty()) {
 			return ResponseEntity.status(204).build();
 		} else {
