@@ -18,39 +18,39 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.generation.diversifica.utils.TipoUsuario;
 
 /**
- *  Model de Avaliação
- *  
- *  @author Bruno Ribeiro
- *  @author Catarina Rinaldi
- *  @since 27/01/2022
- *  @version 1.0
- *  
+ * Model de Avaliação
+ * 
+ * @author Bruno Ribeiro
+ * @author Catarina Rinaldi
+ * @since 27/01/2022
+ * @version 1.0
+ * 
  */
 
 @Entity
 @Table(name = "tb_usuarios")
 public class Usuario {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUsuario;
 
-    @NotNull
+	@NotNull
 	@Size(max = 60)
 	private String nomeUsuario;
 
-    @NotNull
+	@NotNull
 	@Size(max = 45)
 	private String email;
 
-    @NotNull
+	@NotNull
 	@Size(max = 45)
 	private String senha;
 
-    @Enumerated(EnumType.STRING)
-    private TipoUsuario tipo = TipoUsuario.PESSOA_FISICA;
+	@Enumerated(EnumType.STRING)
+	private TipoUsuario tipo;
 
-    @NotNull
+	@NotNull
 	@Size(max = 45)
 	private String comunidade;
 
@@ -69,13 +69,13 @@ public class Usuario {
 	@Size(max = 500)
 	private String foto;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
-	private List<Vaga> Vaga;
-    
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
-   	@JsonIgnoreProperties("usuario")
-   	private List<Avaliacao> Avaliacao;
+	private List<Vaga> vaga;
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("usuario")
+	private List<Avaliacao> avaliacao;
 
 	public Long getIdUsuario() {
 		return idUsuario;
@@ -109,8 +109,8 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public TipoUsuario getTipo() {
-		return tipo;
+	public String getTipo() {
+		return tipo.toString();
 	}
 
 	public void setTipo(TipoUsuario tipo) {
@@ -166,19 +166,19 @@ public class Usuario {
 	}
 
 	public List<Vaga> getVaga() {
-		return Vaga;
+		return this.vaga;
 	}
 
 	public void setVaga(List<Vaga> vaga) {
-		Vaga = vaga;
+		this.vaga = vaga;
 	}
 
 	public List<Avaliacao> getAvaliacao() {
-		return Avaliacao;
+		return this.avaliacao;
 	}
 
 	public void setAvaliacao(List<Avaliacao> avaliacao) {
-		Avaliacao = avaliacao;
+		this.avaliacao = avaliacao;
 	}
 
 }

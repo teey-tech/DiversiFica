@@ -14,7 +14,7 @@ import com.generation.diversifica.utils.Opcao;
  * Criando a Interface Repositório para Vaga
  * 
  * @author Sarah Nani
- * @author Catarina Rinaldig
+ * @author Catarina Rinaldi
  * @author Igor Miramisawa
  * @since 1.0
  * 
@@ -26,9 +26,9 @@ public interface VagaRepository extends JpaRepository<Vaga, Long> {
 
 	public List<Vaga> findAll();
 
-	public List<Vaga> findAllByPcdAuditivaAndPcdVisualAndPcdFisicaAndPcdMultiplasAndPcdIntelectualAndConvenioAndDentalAndRemotoAndLgbiaAndExperienciaAndEtnia(
+	public List<Vaga> findAllByPcdAuditivaAndPcdVisualAndPcdFisicaAndPcdMultiplasAndPcdIntelectualAndConvenioAndDentalAndRemotoAndLgbiaAndTransAndExperienciaAndEtnia(
 			Opcao pcdAuditiva, Opcao pcdVisual, Opcao pcdFisica, Opcao pcdMultiplas, Opcao pcdIntelectual,
-			Opcao convenio, Opcao dental, Opcao remoto, Opcao lgbia, Experiencia experiencia, Etnia etnia);
+			Opcao convenio, Opcao dental, Opcao remoto, Opcao lgbia, Opcao trans, Experiencia experiencia, Etnia etnia);
 
 	// @Query(value = "SELECT * FROM tb_vagas WHERE ")
 	// public List<Vaga> search(Opcao pcdAuditiva, Opcao pcdVisual);
