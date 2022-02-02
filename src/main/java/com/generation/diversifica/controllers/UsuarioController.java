@@ -6,7 +6,9 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import com.generation.diversifica.models.Usuario;
+import com.generation.diversifica.models.UsuarioLogin;
 import com.generation.diversifica.repositories.UsuarioRepository;
+import com.generation.diversifica.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,6 +40,9 @@ public class UsuarioController {
 
   @Autowired
   private UsuarioRepository repository;
+
+  @Autowired
+	private UsuarioService usuarioService;
 
   /**
    * Função que pega a informação da tabela pelo ID
