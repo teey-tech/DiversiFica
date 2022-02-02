@@ -22,6 +22,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.diversifica.models.Vaga;
 import com.generation.diversifica.repositories.VagaRepository;
+import com.generation.diversifica.utils.Etnia;
+import com.generation.diversifica.utils.Experiencia;
 import com.generation.diversifica.utils.Opcao;
 
 /**
@@ -85,9 +87,16 @@ public class VagaController {
 			@RequestParam(required = false) Opcao pcdVisual,
 			@RequestParam(required = false) Opcao pcdFisica,
 			@RequestParam(required = false) Opcao pcdMultiplas,
-			@RequestParam(required = false) Opcao pcdIntelectual) {
-
-		List<Vaga> list = repository.findAllByPcdAuditivaAndPcdVisualAndPcdFisicaAndPcdMultiplasAndPcdIntelectual(pcdAuditiva, pcdVisual, pcdFisica, pcdMultiplas, pcdIntelectual);
+			@RequestParam(required = false) Opcao pcdIntelectual,
+			@RequestParam(required = false) Opcao convenio,
+			@RequestParam(required = false) Opcao dental,
+			@RequestParam(required = false) Opcao remoto, 
+			@RequestParam(required = false) Opcao lgbia,
+			@RequestParam(required = false) Opcao trans,
+			@RequestParam(required = false) Experiencia experiencia,
+			@RequestParam(required = false) Etnia etnia) {
+ 
+		List<Vaga> list = repository.findAllByPcdAuditivaAndPcdVisualAndPcdFisicaAndPcdMultiplasAndPcdIntelectualAndConvenioAndDentalAndRemotoAndLgbiaAndTransAndExperienciaAndEtnia(pcdAuditiva, pcdVisual, pcdFisica, pcdMultiplas, pcdIntelectual, convenio, dental, remoto, lgbia, trans, experiencia, etnia);
 		if (list.isEmpty()) {
 			return ResponseEntity.status(204).build();
 		} else {
