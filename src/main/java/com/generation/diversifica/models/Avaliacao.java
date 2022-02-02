@@ -13,23 +13,23 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- *  Model de Avaliação
- *  
- *  @author Catarina Rinaldi
- *  @since 27/01/2022
- *  @version 1.0
- *  
+ * Model de Avaliação
+ * 
+ * @author Catarina Rinaldi
+ * @since 27/01/2022
+ * @version 1.0
+ * 
  */
 
 @Entity
 @Table(name = "tb_avaliacoes")
 
 public class Avaliacao {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idAvaliacao;
-	
+
 	@NotNull
 	@Size(max = 10)
 	private int sexualidade;
@@ -37,23 +37,22 @@ public class Avaliacao {
 	@NotNull
 	@Size(max = 10)
 	private int genero;
-	
+
 	@NotNull
 	@Size(max = 10)
 	private int pcds;
-	
+
 	@NotNull
 	@Size(max = 10)
 	private int etnia;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "fk_usuario")
-	@JsonIgnoreProperties("Avaliacao")
+	@JsonIgnoreProperties("avaliacao")
 	private Usuario usuario;
 
+	// Getters And Setters
 
-//	Getters And Setters
-	
 	public Long getIdAvaliacao() {
 		return idAvaliacao;
 	}
@@ -103,4 +102,3 @@ public class Avaliacao {
 	}
 
 }
-
