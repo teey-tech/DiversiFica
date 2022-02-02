@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.PutMapping;
  */
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/usuarios")
 @CrossOrigin("*")
 public class UsuarioController {
 
@@ -97,18 +97,36 @@ public class UsuarioController {
   }
 
   /**
-   * Função que salva as informações no banco de dados
-   * 
-   * @author Thiago Batista
+   * Função que loga o usuário no sistema
+   *  
+   * @author Igor Miramisawa
    * @version 1.0
    * @since 27/01/2022
    * 
    */
+  
+  @PostMapping("/logar")
+	public ResponseEntity<UsuarioLogin> Autentication(@RequestBody Optional<UsuarioLogin> user) {
+		return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+	}
 
-  @PostMapping("/save")
-  public ResponseEntity<Usuario> savePost(@Valid @RequestBody Usuario usuario) {
-    return ResponseEntity.status(201).body(repository.save(usuario));
-  }
+  /**
+   * Função que cadastra as informações de usuários no banco de dados
+   * 
+   * @author Thiago Batista
+   * @author Igor Miramisawa
+   * @version 1.0
+   * @since 27/01/2022
+   * 
+   */
+  
+	@PostMapping("/cadastrar")
+	public ResponseEntity<Usuario> Post(@RequestBody Usuario usuario) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.CadastrarUsuario(usuario));
+	}
+
+
 
   /**
    * Função que altera as informações no banco de dados
