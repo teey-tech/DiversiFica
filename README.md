@@ -3,12 +3,14 @@
 <h1><strong>Projeto: diversiFica</h1></strong>
 </p>
     <p align="left"><a href="https://www.behance.net/gallery/133631911/diversiFica" target=_blank"><img src="https://img.shields.io/badge/Behance-000?style=for-the-badge&logo=ko-fi&logoColor=white"></a>
+  <a href="https://linktr.ee/grupo05" target=_blank"><img src="https://img.shields.io/badge/Contatos-000?style=for-the-badge&logo=&logoColor=white"></a>
 <br>
 </p>
 
+
 ### 🚧 **Projeto em construção** 🚧
 <a href="http://makeapullrequest.com">
-    <img src="https://img.shields.io/badge/progresso-48%25-blue.svg" alt="PRs Welcome">
+    <img src="https://img.shields.io/badge/progresso-50%25-blue.svg" alt="PRs Welcome">
   </a>
 <br>
     
@@ -26,7 +28,7 @@
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-<img src="https://raw.githubusercontent.com/catarinaldi/DiversiFica-1/main/src/Capa_Telas.fw.png" min-width="400px" max-width="400px" width="400px" align="right" alt="Computador iuriCode">
+<img src="https://github.com/catarinaldi/DiversiFica-1/blob/main/src/assets/Capa_Telas.fw.png" min-width="400px" max-width="400px" width="400px" align="right" alt="Computador iuriCode">
 
 - [x] [Java](https://www.java.com/pt-BR/)
 - [x] [Spring Boot](https://start.spring.io/)
