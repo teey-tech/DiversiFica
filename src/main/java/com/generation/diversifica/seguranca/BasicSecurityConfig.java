@@ -11,6 +11,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/*
+ * Criando a Classe BasicSecurityConfig
+ * 
+ * @Author Igor Miramisawa
+ * @Since 04/02/2022
+ * @Version 1.0
+ * 
+ */
+
 @EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	
@@ -20,6 +29,10 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure (AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
+		auth.inMemoryAuthentication()
+			.withUser("diversifica")
+			.password(passwordEncoder().encode("diversifica"))
+			.authorities("ROLE_ADMIN");
 	}
 	
 	@Bean 
