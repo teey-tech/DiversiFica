@@ -28,20 +28,20 @@ public class SwaggerConfig {
 	@Bean
 	public OpenAPI springBlogPessoalOpenAPI() {
 		return new OpenAPI()
-			.info(new Info()
-				.title("Projeto DiversiFica")
-				.description("Projeto DiversiFica - Generation Brasil")
-				.version("v0.0.1")
-				.license(new License()
-				.name("generation.org.br")
-				.url("http://springdoc.org"))
-				.contact(new Contact()
-				.name("Grupo 05")
-				.url("https://linktr.ee/grupo05")
-				.email("diversifica@hotmail.com")))
+				.info(new Info()
+						.title("Projeto DiversiFica")
+						.description("Projeto DiversiFica - Generation Brasil")
+						.version("v0.0.1")
+						.license(new License()
+								.name("generation.org.br")
+								.url("http://springdoc.org"))
+						.contact(new Contact()
+								.name("Grupo 05")
+								.url("https://linktr.ee/diversifica")
+								.email("diversifica@hotmail.com")))
 				.externalDocs(new ExternalDocumentation()
-				.description("Github")
-				.url("https://linktr.ee/grupo05"));
+						.description("Github")
+						.url("https://linktr.ee/diversifica"));
 	}
 
 	@Bean
