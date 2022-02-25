@@ -4,8 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,7 +14,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.generation.diversifica.utils.TipoUsuario;
+
 
 /**
  * Model de Avaliação
@@ -46,9 +45,6 @@ public class Usuario {
 	@NotNull
 	private String senha;
 
-	@Enumerated(EnumType.STRING)
-	private TipoUsuario tipo;
-
 	@NotNull
 	@Size(max = 45)
 	private String comunidade;
@@ -67,6 +63,9 @@ public class Usuario {
 
 	@Size(max = 500)
 	private String foto;
+
+	@NotNull
+	private String tipo;
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
@@ -109,10 +108,10 @@ public class Usuario {
 	}
 
 	public String getTipo() {
-		return tipo.toString();
+		return tipo;
 	}
 
-	public void setTipo(TipoUsuario tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
