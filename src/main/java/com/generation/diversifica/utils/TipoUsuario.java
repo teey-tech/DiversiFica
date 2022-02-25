@@ -9,6 +9,7 @@ package com.generation.diversifica.utils;
  *  @see Usuário
  *  
  */
+
 public enum TipoUsuario {
     PESSOA_FISICA("Pessoa Física"), PESSOA_JURIDICA("Pessoa Jurídica");
     private String tipo;
@@ -24,4 +25,5 @@ public enum TipoUsuario {
     public String toString(){
         return this.tipo;
     }
+    
 }

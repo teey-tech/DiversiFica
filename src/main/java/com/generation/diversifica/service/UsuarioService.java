@@ -45,10 +45,17 @@ public class UsuarioService {
                 byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
 
                 String authHeader = "Basic " + new String(encodedAuth);
-
+                
+                user.get().setIdUsuario(user.get().getIdUsuario());
                 user.get().setToken(authHeader);
                 user.get().setEmail(user.get().getEmail());
-
+                user.get().setNomeUsuario(user.get().getNomeUsuario());
+                user.get().setFoto(user.get().getFoto());
+                user.get().setComunidade(user.get().getComunidade());
+                user.get().setEtnia(user.get().getEtnia());
+                user.get().setGenero(user.get().getGenero());
+                user.get().setPcds(user.get().getPcds());
+                user.get().setTipo(user.get().getTipo());
                 return user;
             }
         }
