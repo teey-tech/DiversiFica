@@ -68,6 +68,7 @@ public class Usuario {
 	private String etnia;
 
 	// Pessoa Juridica
+	private String generoLGBTQIA;
 
 	private String generoMulher;
 
@@ -88,7 +89,7 @@ public class Usuario {
 	public Usuario(Long idUsuario, String nomeUsuario, String email, String senha, String foto, String tipo,
 			String sexualidade, String pcdIntelectual, String pcdFisica, String pcdVisual, String pcdAuditiva,
 			String pcdMultiplas, String genero, String etnia, String generoMulher, String generoTrans, String negro,
-			String indigena) {
+			String indigena, String generoLGBTQIA) {
 		this.idUsuario = idUsuario;
 		this.nomeUsuario = nomeUsuario;
 		this.email = email;
@@ -107,6 +108,7 @@ public class Usuario {
 		this.generoTrans = generoTrans;
 		this.negro = negro;
 		this.indigena = indigena;
+		this.generoLGBTQIA = generoLGBTQIA;
 	}
 
 	public Usuario() {
@@ -222,6 +224,14 @@ public class Usuario {
 
 	public void setEtnia(String etnia) {
 		this.etnia = etnia;
+	}
+
+	public String getGeneroLGBTQIA() {
+		return this.generoLGBTQIA;
+	}
+
+	public void setGeneroLGBTQIA(String generoLGBTQIA) {
+		this.generoLGBTQIA = generoLGBTQIA;
 	}
 
 	public String getGeneroMulher() {
