@@ -15,7 +15,6 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 /**
  * Model de Avaliação
  * 
@@ -34,38 +33,49 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUsuario;
 
+	// Ambos
 	@NotNull
-	@Size(max = 60)
 	private String nomeUsuario;
 
 	@NotNull
-	@Size(max = 45)
 	private String email;
 
 	@NotNull
 	private String senha;
 
+	@Size(max = 5000)
 	@NotNull
-	@Size(max = 45)
-	private String comunidade;
-
-	@Size(max = 45)
-	private String sexualidade;
-
-	@Size(max = 45)
-	private String genero;
-
-	@Size(max = 45)
-	private String pcds;
-
-	@Size(max = 45)
-	private String etnia;
-
-	@Size(max = 500)
 	private String foto;
 
 	@NotNull
 	private String tipo;
+
+	private String sexualidade;
+
+	private String pcdIntelectual;
+
+	private String pcdFisica;
+
+	private String pcdVisual;
+
+	private String pcdAuditiva;
+
+	private String pcdMultiplas;
+
+	// Pessoa Fisica
+	private String genero;
+
+	private String etnia;
+
+	// Pessoa Juridica
+
+	private String generoMulher;
+
+	private String generoTrans;
+
+	private String negro;
+
+	private String indigena;
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
@@ -75,8 +85,35 @@ public class Usuario {
 	@JsonIgnoreProperties("usuario")
 	private List<Avaliacao> avaliacao;
 
+	public Usuario(Long idUsuario, String nomeUsuario, String email, String senha, String foto, String tipo,
+			String sexualidade, String pcdIntelectual, String pcdFisica, String pcdVisual, String pcdAuditiva,
+			String pcdMultiplas, String genero, String etnia, String generoMulher, String generoTrans, String negro,
+			String indigena) {
+		this.idUsuario = idUsuario;
+		this.nomeUsuario = nomeUsuario;
+		this.email = email;
+		this.senha = senha;
+		this.foto = foto;
+		this.tipo = tipo;
+		this.sexualidade = sexualidade;
+		this.pcdIntelectual = pcdIntelectual;
+		this.pcdFisica = pcdFisica;
+		this.pcdVisual = pcdVisual;
+		this.pcdAuditiva = pcdAuditiva;
+		this.pcdMultiplas = pcdMultiplas;
+		this.genero = genero;
+		this.etnia = etnia;
+		this.generoMulher = generoMulher;
+		this.generoTrans = generoTrans;
+		this.negro = negro;
+		this.indigena = indigena;
+	}
+
+	public Usuario() {
+	}
+
 	public Long getIdUsuario() {
-		return idUsuario;
+		return this.idUsuario;
 	}
 
 	public void setIdUsuario(Long idUsuario) {
@@ -84,7 +121,7 @@ public class Usuario {
 	}
 
 	public String getNomeUsuario() {
-		return nomeUsuario;
+		return this.nomeUsuario;
 	}
 
 	public void setNomeUsuario(String nomeUsuario) {
@@ -92,7 +129,7 @@ public class Usuario {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
@@ -100,67 +137,123 @@ public class Usuario {
 	}
 
 	public String getSenha() {
-		return senha;
+		return this.senha;
 	}
 
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
+	public String getFoto() {
+		return this.foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
 	public String getTipo() {
-		return tipo;
+		return this.tipo;
 	}
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
-	public String getComunidade() {
-		return comunidade;
-	}
-
-	public void setComunidade(String comunidade) {
-		this.comunidade = comunidade;
-	}
-
 	public String getSexualidade() {
-		return sexualidade;
+		return this.sexualidade;
 	}
 
 	public void setSexualidade(String sexualidade) {
 		this.sexualidade = sexualidade;
 	}
 
+	public String getPcdIntelectual() {
+		return this.pcdIntelectual;
+	}
+
+	public void setPcdIntelectual(String pcdIntelectual) {
+		this.pcdIntelectual = pcdIntelectual;
+	}
+
+	public String getPcdFisica() {
+		return this.pcdFisica;
+	}
+
+	public void setPcdFisica(String pcdFisica) {
+		this.pcdFisica = pcdFisica;
+	}
+
+	public String getPcdVisual() {
+		return this.pcdVisual;
+	}
+
+	public void setPcdVisual(String pcdVisual) {
+		this.pcdVisual = pcdVisual;
+	}
+
+	public String getPcdAuditiva() {
+		return this.pcdAuditiva;
+	}
+
+	public void setPcdAuditiva(String pcdAuditiva) {
+		this.pcdAuditiva = pcdAuditiva;
+	}
+
+	public String getPcdMultiplas() {
+		return this.pcdMultiplas;
+	}
+
+	public void setPcdMultiplas(String pcdMultiplas) {
+		this.pcdMultiplas = pcdMultiplas;
+	}
+
 	public String getGenero() {
-		return genero;
+		return this.genero;
 	}
 
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
 
-	public String getPcds() {
-		return pcds;
-	}
-
-	public void setPcds(String pcds) {
-		this.pcds = pcds;
-	}
-
 	public String getEtnia() {
-		return etnia;
+		return this.etnia;
 	}
 
 	public void setEtnia(String etnia) {
 		this.etnia = etnia;
 	}
 
-	public String getFoto() {
-		return foto;
+	public String getGeneroMulher() {
+		return this.generoMulher;
 	}
 
-	public void setFoto(String foto) {
-		this.foto = foto;
+	public void setGeneroMulher(String generoMulher) {
+		this.generoMulher = generoMulher;
+	}
+
+	public String getGeneroTrans() {
+		return this.generoTrans;
+	}
+
+	public void setGeneroTrans(String generoTrans) {
+		this.generoTrans = generoTrans;
+	}
+
+	public String getNegro() {
+		return this.negro;
+	}
+
+	public void setNegro(String negro) {
+		this.negro = negro;
+	}
+
+	public String getIndigena() {
+		return this.indigena;
+	}
+
+	public void setIndigena(String indigena) {
+		this.indigena = indigena;
 	}
 
 	public List<Vaga> getVaga() {

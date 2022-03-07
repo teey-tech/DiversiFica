@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -30,21 +29,20 @@ public class Avaliacao {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idAvaliacao;
 
-	@NotNull
 	@Size(max = 10)
 	private int sexualidade;
 
-	@NotNull
 	@Size(max = 10)
 	private int genero;
 
-	@NotNull
 	@Size(max = 10)
 	private int pcds;
 
-	@NotNull
 	@Size(max = 10)
 	private int etnia;
+
+	@Size(max = 300)
+	private String comentario;
 
 	@ManyToOne
 	@JoinColumn(name = "fk_usuario")
@@ -91,6 +89,14 @@ public class Avaliacao {
 
 	public void setEtnia(int etnia) {
 		this.etnia = etnia;
+	}
+
+	public String getComentario() {
+		return this.comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
 	}
 
 	public Usuario getUsuario() {
