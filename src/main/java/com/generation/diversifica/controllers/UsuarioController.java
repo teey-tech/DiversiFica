@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.bind.annotation.PutMapping;
 
 /**
@@ -42,7 +41,7 @@ public class UsuarioController {
   private UsuarioRepository repository;
 
   @Autowired
-	private UsuarioService usuarioService;
+  private UsuarioService usuarioService;
 
   /**
    * Função que pega a informação da tabela pelo ID
@@ -103,18 +102,18 @@ public class UsuarioController {
 
   /**
    * Função que loga o usuário no sistema
-   *  
+   * 
    * @author Igor Miramisawa
    * @version 1.0
    * @since 27/01/2022
    * 
    */
-  
+
   @PostMapping("/logar")
-	public ResponseEntity<UsuarioLogin> Autentication(@RequestBody Optional<UsuarioLogin> user) {
-		return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
-				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
-	}
+  public ResponseEntity<UsuarioLogin> Auth(@RequestBody Optional<UsuarioLogin> user) {
+    return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
+        .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+  }
 
   /**
    * Função que cadastra as informações de usuários no banco de dados
@@ -125,13 +124,13 @@ public class UsuarioController {
    * @since 27/01/2022
    * 
    */
-  
-	@PostMapping("/cadastrar")
-	public ResponseEntity<Usuario> Post(@RequestBody Usuario usuario) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.CadastrarUsuario(usuario));
-	}
 
-
+  @PostMapping("/cadastrar")
+  public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario) {
+    return usuarioService.cadastrarUsuario(usuario)
+        .map(resp -> ResponseEntity.status(HttpStatus.CREATED).body(resp))
+        .orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+  }
 
   /**
    * Função que altera as informações no banco de dados
@@ -141,14 +140,11 @@ public class UsuarioController {
    * @since 27/01/2022
    * 
    */
-
-  @PutMapping(value = "update")
-  public ResponseEntity<Usuario> updatePost(@Valid @RequestBody Usuario usuario) {
-    return repository.findById(usuario.getIdUsuario()).map(record -> {
-      return ResponseEntity.status(201).body(repository.save(usuario));
-    }).orElseGet(() -> {
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id não encontrado");
-    });
+  @PutMapping
+  public ResponseEntity<Usuario> putUsuario(@Valid @RequestBody Usuario usuario) {
+    return usuarioService.atualizarUsuario(usuario)
+        .map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
+        .orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
   }
 
   /**

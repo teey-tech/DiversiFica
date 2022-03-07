@@ -45,6 +45,25 @@ public class AvaliacaoController {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
+	@GetMapping("{idAvaliacao}")
+	public ResponseEntity<Avaliacao> getId(@PathVariable Long idAvaliacao) {
+		return repository.findById(idAvaliacao).map(resp -> {
+			return ResponseEntity.status(200).body(resp);
+		}).orElseGet(() -> {
+			return ResponseEntity.status(404).build();
+		});
+	}
+
+	@GetMapping("/comentario/{comentario}")
+	public ResponseEntity<List<Avaliacao>> getByName(@PathVariable String comentario) {
+		List<Avaliacao> list = repository.findAllByComentarioContainingIgnoreCase(comentario);
+		if (list.isEmpty()) {
+			return ResponseEntity.status(204).build();
+		} else {
+			return ResponseEntity.status(200).body(list);
+		}
+	}
+
 	@PostMapping("/save")
 	public ResponseEntity<Avaliacao> savePost(@Valid @RequestBody Avaliacao avaliacao) {
 		return ResponseEntity.status(201).body(repository.save(avaliacao));
