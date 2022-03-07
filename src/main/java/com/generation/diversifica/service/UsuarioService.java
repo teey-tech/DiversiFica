@@ -150,7 +150,7 @@ public class UsuarioService {
                 user.get().setIndigena(user.get().getIndigena());
                 user.get().setGenero(user.get().getGenero());
                 user.get().setSexualidade(user.get().getSexualidade());
-                user.get().setGeneroLGBTQIA(user.get().getGeneroLGBTQIA());
+                user.get().setGeneroLgbtqia(user.get().getGeneroLgbtqia());
                 user.get().setGeneroMulher(user.get().getGeneroMulher());
                 user.get().setGeneroTrans(user.get().getGeneroTrans());
                 user.get().setPcdAuditiva(user.get().getPcdAuditiva());

@@ -34,7 +34,7 @@ public class UsuarioLogin {
 	private String etnia;
 
 	// Pessoa Juridica
-	private String generoLGBTQIA;
+	private String generoLgbtqia;
 
 	private String generoMulher;
 
@@ -164,12 +164,12 @@ public class UsuarioLogin {
 		this.etnia = etnia;
 	}
 
-	public String getGeneroLGBTQIA() {
-		return this.generoLGBTQIA;
+	public String getGeneroLgbtqia() {
+		return this.generoLgbtqia;
 	}
 
-	public void setGeneroLGBTQIA(String generoLGBTQIA) {
-		this.generoLGBTQIA = generoLGBTQIA;
+	public void setGeneroLgbtqia(String generoLgbtqia) {
+		this.generoLgbtqia = generoLgbtqia;
 	}
 
 	public String getGeneroMulher() {

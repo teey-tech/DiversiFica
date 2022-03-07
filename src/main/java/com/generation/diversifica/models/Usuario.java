@@ -68,7 +68,7 @@ public class Usuario {
 	private String etnia;
 
 	// Pessoa Juridica
-	private String generoLGBTQIA;
+	private String generoLgbtqia;
 
 	private String generoMulher;
 
@@ -88,8 +88,8 @@ public class Usuario {
 
 	public Usuario(Long idUsuario, String nomeUsuario, String email, String senha, String foto, String tipo,
 			String sexualidade, String pcdIntelectual, String pcdFisica, String pcdVisual, String pcdAuditiva,
-			String pcdMultiplas, String genero, String etnia, String generoMulher, String generoTrans, String negro,
-			String indigena, String generoLGBTQIA) {
+			String pcdMultiplas, String genero, String etnia, String generoLgbtqia, String generoMulher, String generoTrans,
+			String negro, String indigena) {
 		this.idUsuario = idUsuario;
 		this.nomeUsuario = nomeUsuario;
 		this.email = email;
@@ -104,11 +104,11 @@ public class Usuario {
 		this.pcdMultiplas = pcdMultiplas;
 		this.genero = genero;
 		this.etnia = etnia;
+		this.generoLgbtqia = generoLgbtqia;
 		this.generoMulher = generoMulher;
 		this.generoTrans = generoTrans;
 		this.negro = negro;
 		this.indigena = indigena;
-		this.generoLGBTQIA = generoLGBTQIA;
 	}
 
 	public Usuario() {
@@ -226,12 +226,12 @@ public class Usuario {
 		this.etnia = etnia;
 	}
 
-	public String getGeneroLGBTQIA() {
-		return this.generoLGBTQIA;
+	public String getGeneroLgbtqia() {
+		return this.generoLgbtqia;
 	}
 
-	public void setGeneroLGBTQIA(String generoLGBTQIA) {
-		this.generoLGBTQIA = generoLGBTQIA;
+	public void setGeneroLgbtqia(String generoLgbtqia) {
+		this.generoLgbtqia = generoLgbtqia;
 	}
 
 	public String getGeneroMulher() {
