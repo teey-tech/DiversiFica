@@ -33,6 +33,8 @@ public class UsuarioLogin {
 
 	private String etnia;
 
+	private String pcd;
+
 	// Pessoa Juridica
 	private String generoLgbtqia;
 
@@ -162,6 +164,14 @@ public class UsuarioLogin {
 
 	public void setEtnia(String etnia) {
 		this.etnia = etnia;
+	}
+
+	public String getPcd() {
+		return this.pcd;
+	}
+
+	public void setPcd(String pcd) {
+		this.pcd = pcd;
 	}
 
 	public String getGeneroLgbtqia() {

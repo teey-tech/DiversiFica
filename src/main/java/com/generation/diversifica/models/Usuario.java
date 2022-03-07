@@ -67,6 +67,8 @@ public class Usuario {
 
 	private String etnia;
 
+	private String pcd;
+
 	// Pessoa Juridica
 	private String generoLgbtqia;
 
@@ -88,8 +90,8 @@ public class Usuario {
 
 	public Usuario(Long idUsuario, String nomeUsuario, String email, String senha, String foto, String tipo,
 			String sexualidade, String pcdIntelectual, String pcdFisica, String pcdVisual, String pcdAuditiva,
-			String pcdMultiplas, String genero, String etnia, String generoLgbtqia, String generoMulher, String generoTrans,
-			String negro, String indigena) {
+			String pcdMultiplas, String genero, String etnia, String pcd, String generoLgbtqia, String generoMulher,
+			String generoTrans, String negro, String indigena) {
 		this.idUsuario = idUsuario;
 		this.nomeUsuario = nomeUsuario;
 		this.email = email;
@@ -104,6 +106,7 @@ public class Usuario {
 		this.pcdMultiplas = pcdMultiplas;
 		this.genero = genero;
 		this.etnia = etnia;
+		this.pcd = pcd;
 		this.generoLgbtqia = generoLgbtqia;
 		this.generoMulher = generoMulher;
 		this.generoTrans = generoTrans;
@@ -224,6 +227,14 @@ public class Usuario {
 
 	public void setEtnia(String etnia) {
 		this.etnia = etnia;
+	}
+
+	public String getPcd() {
+		return this.pcd;
+	}
+
+	public void setPcd(String pcd) {
+		this.pcd = pcd;
 	}
 
 	public String getGeneroLgbtqia() {

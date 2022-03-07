@@ -146,6 +146,7 @@ public class UsuarioService {
                 user.get().setNomeUsuario(user.get().getNomeUsuario());
                 user.get().setFoto(user.get().getFoto());
                 user.get().setEtnia(user.get().getEtnia());
+                user.get().setPcd(user.get().getPcd());
                 user.get().setNegro(user.get().getNegro());
                 user.get().setIndigena(user.get().getIndigena());
                 user.get().setGenero(user.get().getGenero());
