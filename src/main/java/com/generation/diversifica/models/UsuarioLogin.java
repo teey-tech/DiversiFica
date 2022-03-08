@@ -2,7 +2,7 @@ package com.generation.diversifica.models;
 
 public class UsuarioLogin {
 
-	private String idUsuario;
+	private Long idUsuario;
 
 	private String nomeUsuario;
 
@@ -46,11 +46,11 @@ public class UsuarioLogin {
 
 	private String indigena;
 
-	public String getIdUsuario() {
+	public Long getIdUsuario() {
 		return this.idUsuario;
 	}
 
-	public void setIdUsuario(String idUsuario) {
+	public void setIdUsuario(Long idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 
