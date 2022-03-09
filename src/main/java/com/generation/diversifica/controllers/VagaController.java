@@ -51,7 +51,7 @@ public class VagaController {
 	 * 
 	 */
 
-	@GetMapping
+	@GetMapping("get-all")
 	public ResponseEntity<List<Vaga>> getAll() {
 		List<Vaga> list = repository.findAll();
 
@@ -82,7 +82,7 @@ public class VagaController {
 	}
 
 	@GetMapping("/search")
-	public ResponseEntity<List<Vaga>> search (
+	public ResponseEntity<List<Vaga>> search(
 			@RequestParam(required = false) Opcao pcdAuditiva,
 			@RequestParam(required = false) Opcao pcdVisual,
 			@RequestParam(required = false) Opcao pcdFisica,
@@ -90,13 +90,16 @@ public class VagaController {
 			@RequestParam(required = false) Opcao pcdIntelectual,
 			@RequestParam(required = false) Opcao convenio,
 			@RequestParam(required = false) Opcao dental,
-			@RequestParam(required = false) Opcao remoto, 
+			@RequestParam(required = false) Opcao remoto,
 			@RequestParam(required = false) Opcao lgbia,
 			@RequestParam(required = false) Opcao trans,
 			@RequestParam(required = false) Experiencia experiencia,
 			@RequestParam(required = false) Etnia etnia) {
- 
-		List<Vaga> list = repository.findAllByPcdAuditivaAndPcdVisualAndPcdFisicaAndPcdMultiplasAndPcdIntelectualAndConvenioAndDentalAndRemotoAndLgbiaAndTransAndExperienciaAndEtnia(pcdAuditiva, pcdVisual, pcdFisica, pcdMultiplas, pcdIntelectual, convenio, dental, remoto, lgbia, trans, experiencia, etnia);
+
+		List<Vaga> list = repository
+				.findAllByPcdAuditivaAndPcdVisualAndPcdFisicaAndPcdMultiplasAndPcdIntelectualAndConvenioAndDentalAndRemotoAndLgbiaAndTransAndExperienciaAndEtnia(
+						pcdAuditiva, pcdVisual, pcdFisica, pcdMultiplas, pcdIntelectual, convenio, dental, remoto, lgbia, trans,
+						experiencia, etnia);
 		if (list.isEmpty()) {
 			return ResponseEntity.status(204).build();
 		} else {
