@@ -141,25 +141,25 @@ public class UsuarioService {
         Optional<Usuario> usuario = repository.findByEmail(user.get().getEmail());
         if (usuario.isPresent()) {
             if (compararSenhas(user.get().getSenha(), usuario.get().getSenha())) {
-                user.get().setIdUsuario(user.get().getIdUsuario());
-                user.get().setEmail(user.get().getEmail());
-                user.get().setNomeUsuario(user.get().getNomeUsuario());
-                user.get().setFoto(user.get().getFoto());
-                user.get().setEtnia(user.get().getEtnia());
-                user.get().setPcd(user.get().getPcd());
-                user.get().setNegro(user.get().getNegro());
-                user.get().setIndigena(user.get().getIndigena());
-                user.get().setGenero(user.get().getGenero());
-                user.get().setSexualidade(user.get().getSexualidade());
-                user.get().setGeneroLgbtqia(user.get().getGeneroLgbtqia());
-                user.get().setGeneroMulher(user.get().getGeneroMulher());
-                user.get().setGeneroTrans(user.get().getGeneroTrans());
-                user.get().setPcdAuditiva(user.get().getPcdAuditiva());
-                user.get().setPcdFisica(user.get().getPcdFisica());
-                user.get().setPcdIntelectual(user.get().getPcdIntelectual());
-                user.get().setPcdMultiplas(user.get().getPcdMultiplas());
-                user.get().setPcdVisual(user.get().getPcdVisual());
-                user.get().setTipo(user.get().getTipo());
+                user.get().setIdUsuario(usuario.get().getIdUsuario());
+                user.get().setEmail(usuario.get().getEmail());
+                user.get().setNomeUsuario(usuario.get().getNomeUsuario());
+                user.get().setFoto(usuario.get().getFoto());
+                user.get().setEtnia(usuario.get().getEtnia());
+                user.get().setPcd(usuario.get().getPcd());
+                user.get().setNegro(usuario.get().getNegro());
+                user.get().setIndigena(usuario.get().getIndigena());
+                user.get().setGenero(usuario.get().getGenero());
+                user.get().setSexualidade(usuario.get().getSexualidade());
+                user.get().setGeneroLgbtqia(usuario.get().getGeneroLgbtqia());
+                user.get().setGeneroMulher(usuario.get().getGeneroMulher());
+                user.get().setGeneroTrans(usuario.get().getGeneroTrans());
+                user.get().setPcdAuditiva(usuario.get().getPcdAuditiva());
+                user.get().setPcdFisica(usuario.get().getPcdFisica());
+                user.get().setPcdIntelectual(usuario.get().getPcdIntelectual());
+                user.get().setPcdMultiplas(usuario.get().getPcdMultiplas());
+                user.get().setPcdVisual(usuario.get().getPcdVisual());
+                user.get().setTipo(usuario.get().getTipo());
                 user.get()
                         .setToken(generatorBasicToken(user.get().getEmail(), user.get().getSenha()));
                 user.get().setSenha(usuario.get().getSenha());
